@@ -1,0 +1,316 @@
+{
+  "last_node_id": 47,
+  "last_link_id": 65,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        50,
+        80
+      ],
+      "size": [
+        320,
+        310
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ПаулинаАндреева01.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [
+        50,
+        430
+      ],
+      "size": [
+        320,
+        310
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ПолинаГагарина01.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "LoadImage",
+      "pos": [
+        380,
+        430
+      ],
+      "size": [
+        320,
+        310
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ОльгаКуриленко01.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "LoadImage",
+      "pos": [
+        710,
+        430
+      ],
+      "size": [
+        320,
+        310
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ИринаАнтоненко02.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "ImpactMakeImageBatch",
+      "pos": [
+        490,
+        260
+      ],
+      "size": {
+        "0": 160,
+        "1": 110
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "image3",
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "name": "image4",
+          "type": "IMAGE",
+          "link": 14
+        },
+        {
+          "name": "image5",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactMakeImageBatch"
+      }
+    },
+    {
+      "id": 1,
+      "type": "ReActorBuildFaceModel",
+      "pos": [
+        710,
+        260
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 6,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorBuildFaceModel"
+      },
+      "widgets_values": [
+        true,
+        "type_model_name_here",
+        "Mean"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "Note",
+      "pos": [
+        1040,
+        260
+      ],
+      "size": [
+        350,
+        100
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Mean (recommended) - Average value (best result 👍)\nMedian* - Mid-point value (may be funny 😅)\nMode - Most common value (may be scary 😨)\n\n*Mean and Median will be similar if you load two images"
+      ]
+    }
+  ],
+  "links": [
+    [
+      3,
+      3,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      4,
+      0,
+      5,
+      1,
+      "IMAGE"
+    ],
+    [
+      5,
+      6,
+      0,
+      5,
+      2,
+      "IMAGE"
+    ],
+    [
+      6,
+      5,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      11,
+      0,
+      5,
+      3,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
